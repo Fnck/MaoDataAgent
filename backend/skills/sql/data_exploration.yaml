@@ -1,0 +1,14 @@
+name: data_exploration
+group: sql
+display_name: "Data Exploration"
+description: "Explore data assets, tables, and schemas without writing SQL. Get an overview of available data and find relevant tables."
+instruction: |
+  **Objective**: Help the user explore and understand available data.
+
+  **Steps**:
+  1. **List all tables** — use query_metadata with keyword="" to see everything available.
+  2. **Search** — use query_metadata with keyword to find tables matching the user's domain terms.
+  3. **Inspect tables** — use query_metadata with table_name="..." to see columns.
+     - Start with include_columns=false for quick overview.
+     - Use include_columns=true when you need to see specific column types.
+  4. **Summarize** — tell the user what data is available and suggest tables relevant to their question.

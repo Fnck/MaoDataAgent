@@ -1,0 +1,22 @@
+[project]
+name = "dataagent-backend"
+version = "0.1.0"
+description = "DataAgent backend - intelligent data exploration assistant"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "pyyaml",
+    "python-jose",
+    "bcrypt",
+    "sqlalchemy[asyncio]>=2.0",
+    "asyncpg",
+    "aiosqlite",
+    "alembic>=1.13",
+    "openai",
+    "tos==2.9.0",
+    "httpx",
+    "sqlglot>=30.8.0",
+    "lancedb>=0.15.0",
+]

@@ -1,0 +1,28 @@
+llm:
+  api_base: "https://api.deepseek.com/v1/chat/completions"
+  api_key: ""  # Can be overridden by LLM_API_KEY env var
+  model: "deepseek-v4-pro"
+  max_tokens: 150000
+  temperature: 0.7
+
+auth:
+  jwt_secret: "change-in-production"  # Override via JWT_SECRET env var in production
+  token_expire_hours: 24
+
+object_storage:
+  endpoint: ""  # e.g. "tos-cn-beijing.volces.com" (optional, set via OS_ENDPOINT env var)
+  region: ""    # e.g. "cn-beijing" (optional, set via OS_REGION env var)
+  access_key: "your-access-key"  # Can be overridden by OS_ACCESS_KEY env var
+  secret_key: "your-secret-key"  # Can be overridden by OS_SECRET_KEY env var
+  bucket: "dataagent"
+
+embedding:
+  api_base: "https://api.openai.com/v1"  # Can be overridden by EMBEDDING_API_BASE env var
+  api_key: ""  # Can be overridden by EMBEDDING_API_KEY env var
+  model: "text-embedding-3-small"  # Can be overridden by EMBEDDING_MODEL env var
+  lancedb_path: "./data/lancedb"
+
+workflow:
+  mode: "none"  # "none" | "dynamic" | "yaml"
+  max_iterations: 30
+  yaml_dir: "workflows"

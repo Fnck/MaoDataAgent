@@ -1,0 +1,21 @@
+name: sql_query
+group: sql
+display_name: "SQL Query"
+description: "Execute SQL queries against the database to answer data questions. Handles schema discovery, SQL generation, and result formatting."
+instruction: |
+  **Objective**: Answer the user's question by querying the database.
+
+  **Steps**:
+  1. **Discover schema** — use query_metadata with the keyword or table_names parameter to find relevant tables.
+     - Start without include_columns to get a lightweight overview.
+     - Then use include_columns=true on the specific tables you need to see column types.
+  2. **Write SQL** — craft a SELECT/EXPLAIN/WITH query based on the schema.
+     - Always use LIMIT unless the user asks for full results.
+     - Use EXPLAIN first for complex queries to verify the plan.
+  3. **Execute** — run the query using sql_executor.
+  4. **Format results** — present findings in a clear, structured way.
+
+  **Important**:
+  - Never guess table or column names — always verify with query_metadata first.
+  - If a query fails, read the error, check the schema, and revise.
+  - Keep multi-table joins simple and explicit.

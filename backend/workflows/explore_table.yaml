@@ -1,0 +1,28 @@
+name: "explore_table"
+description: "Explore a database table by first getting its schema, then running a sample query"
+trigger_keywords:
+  - "explore table"
+  - "show table"
+  - "what columns"
+  - "describe table"
+  - "table structure"
+
+steps:
+  - name: "get_schema"
+    type: "tool_call"
+    tool: "get_table_schema"
+    params:
+      table_ref: "sample_db.users"
+
+  - name: "list_tables"
+    type: "tool_call"
+    tool: "list_tables"
+    params: {}
+
+final_answer: |
+  Here is what I found in the data:
+  
+  **Available tables**: {{ steps.list_tables.tables }}
+  
+  **Schema for the requested table**:
+  {{ steps.get_schema.columns }}

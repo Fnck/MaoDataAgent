@@ -1,0 +1,20 @@
+name: ontology_search
+group: ontology
+display_name: "Ontology Search"
+description: "Search business ontology to understand domain concepts, activities, objects, rules, and metrics."
+instruction: |
+  **Objective**: Help the user understand the business domain using the ontology.
+
+  **Steps**:
+  1. **Search** — use ontology_query_tool with keyword matching the user's domain terms.
+     - The keyword can be a business term, entity name, activity name, or metric name.
+  2. **Interpret results**:
+     - **activities** — business processes, their pre/post relationships, and operated objects.
+     - **business_objects** — domain entities with descriptions and related tables.
+     - **object_activity_chain** — the chain of activities an object travels through (from the matched objects).
+     - **rules** — business rules and constraints.
+     - **metrics** — KPIs and their calculation formulas.
+     - **data_assets** — database tables with descriptions.
+  3. **Explain** — translate technical ontology concepts into plain language for the user.
+
+  **When to use**: Before writing SQL, understand the business context. If the user asks about "purchase orders", "quality inspection", or "suppliers", search the ontology first to understand the domain model.
